@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tech stack used
+* Ruby on Rails, Mysql, Redis
+* Hosted on AWS EC2 (ubuntu ami)
 
-Things you may want to cover:
+## Features supported
+* User can register
+* User can login
+* User can refer other users
+* User can see all users they have referred
 
-* Ruby version
+## Technical Considerations
+* Did not use Devise Gem, created own custom registration and login mechanism using redis
+* Used Javascript and Bootstrap5 for frontend as I am not proficient in React
+* Used redis to store sessions which expire after 3 hours
+* Also used redis to store the shareable link id which expires after 7 days
+* Currently hosted on AWS with both postgres and redis on single EC2 machine to complexity
+* Have put in controller level and database level validations wherever necessary
 
-* System dependencies
+## Did not attempt
+* MUI and React based frontend
 
-* Configuration
+## Database Design
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Users table
+  * id (auto incr), email, name, password_digest
+* UserReferences table
+  * id, user_id (foreign_key), email, active, timestamps
+  
