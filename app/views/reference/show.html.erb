@@ -1,0 +1,48 @@
+<div class="container" data-controller="reference">
+	<div class="row">
+		<h1 class="display-4">All References</h1>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<button type="button" class="btn btn-primary" data-action="reference#new_reference_modal">New Reference</button>
+			<table class="table mt-3">
+				<thead>
+					<th>Referred Email</th>
+					<th>Active</th>
+					<th>Added</th>
+				</thead>
+				<tbody id="references_tbody">
+					<% @references.each do |reference| %>
+						<tr>
+							<td><%= reference.email %></td>
+							<td><%= reference.active.present? ? "Yes" : "No" %></td>
+							<td><%= distance_of_time_in_words(reference.created_at, Time.now)   %> ago</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="ref_modal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Add Reference</h5>
+	        
+	      </div>
+	      <div class="modal-body">
+			<form>
+				<div class="form-group">
+	  				<label for="ref_email">Email address</label>
+	  				<input type="email" class="form-control " id="ref_email" aria-describedby="emailHelp" placeholder="Enter email">
+				</div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-action="reference#new_reference">Add</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-action="reference#close_modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

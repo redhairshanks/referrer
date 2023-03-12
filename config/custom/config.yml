@@ -1,0 +1,20 @@
+default: &default
+  redis:
+    host: <%= ENV["REFERRER_REDIS_HOST"] %>
+    namespace: <%= ENV["REFERRER_REDIS_NAMESPACE"] %>
+    port: <%= ENV["REFERRER_REDIS_PORT"] %>
+  host:
+    root: "http://localhost:3003/"
+  aws:
+    ses_username: <%= ENV["REFERRER_SES_USERNAME"] >
+    ses_password: <%= ENV["REFERRER_SES_PASSWORD"] >  
+test:
+  <<: *default
+  host:
+    root: "http://localhost:4000"
+development:
+  <<: *default
+production:
+  <<: *default
+  host:
+    root: "http://3.109.62.223:3000"

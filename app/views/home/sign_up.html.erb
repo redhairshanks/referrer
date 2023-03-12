@@ -1,0 +1,28 @@
+<div class="container" data-controller="hello">
+	<div class="row">
+		<div class="mx-auto my-auto col-6">
+			<form class="sign-in">
+				  <h1 class="display-4">Register</h1>  
+				  <div class="form-group">
+				    <label for="exampleInputName1">Name</label>
+				    <input type="text" class="form-control " id="su_name" aria-describedby="nameHelp" placeholder="Enter full name">
+				  </div>	
+				  <div class="form-group mt-3">
+				    <label for="exampleInputEmail1">Email address</label>
+				    <input type="email" class="form-control" id="su_email" aria-describedby="emailHelp" placeholder="Enter email">
+				  </div>
+				  <div class="form-group mt-3">
+				    <label for="exampleInputPassword1">Password</label>
+				    <input type="password" class="form-control" id="su_password" placeholder="Password">
+				  </div>
+				  <button type="button" class="btn btn-primary mt-3" data-action="hello#sign_up">Sign Up</button>			  
+				  <div class="mt-2">
+				  	<a href="/">Already registed? Login</a>
+				  </div>
+			</form>
+		</div>
+		<div class="mx-auto my-auto col-6">
+			<%= image_tag("front-page.png", width:"100%", height:"100%") %>
+		</div>
+	</div>
+</div>

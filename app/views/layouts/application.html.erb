@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Referrer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+      <div class="toast" style="position: absolute; top: 15px; right: 15px;" id="toast">
+        <div class="toast-header">
+          <strong class="mr-auto" id="toast_header"></strong>
+        </div>
+        <div class="toast-body" id="toast_body">
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>
